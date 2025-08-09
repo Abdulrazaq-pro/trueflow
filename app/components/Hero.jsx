@@ -30,7 +30,7 @@ const features = [
   {
     title: "Smart Automation",
     description:
-      "Automate repetitive tasks and workflows to save time and reduce errors..",
+      "Automate repetitive tasks and workflows to save time and reduce errors.",
     image: "/icons/icon-1.png",
   },
   {
