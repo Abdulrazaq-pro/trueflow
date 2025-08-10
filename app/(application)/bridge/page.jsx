@@ -26,7 +26,10 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import SwapInterface from "../../components/SwapModal";
-import { TrueFlowHeaderRedirect, TrueFlowHeaderRiderect } from "@/app/components/Header";
+import {
+  TrueFlowHeaderRedirect,
+  TrueFlowHeaderRiderect,
+} from "@/app/components/Header";
 import BridgeInterface from "@/app/components/BridgeModal";
 
 const tokens = [
@@ -62,16 +65,14 @@ function ListItem({ className, title, children, icon: Icon, ...props }) {
   );
 }
 
-
-
 export default function TrueFlowApp() {
   return (
-    <div className="min-h-screen ">
-      <TrueFlowHeaderRedirect/>
+    <div className="min-h-screen  py-20 md:py-32 lg:py-40">
+      <TrueFlowHeaderRedirect />
       <main className="py-8">
         <div className="container mx-auto px-4">
           {/* <SwapInterface /> */}
-          <BridgeInterface/>
+          <BridgeInterface />
         </div>
       </main>
     </div>

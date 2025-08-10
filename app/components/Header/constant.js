@@ -25,11 +25,7 @@ export const navigationData = {
       // isActive: true,
       isActive: true,
     },
-    // {
-    //   title: "Swap",
-    //   href: "/swap",
-    //   isActive: true,
-    // },
+   
     {
       title: "Bridge",
       href: "/bridge",
@@ -38,30 +34,7 @@ export const navigationData = {
       title: "Faucet",
       href: "/faucet",
     },
-    // {
-    //   title: "Swap",
-    //   hasDropdown: true,
-    //   dropdownItems: [
-    //     {
-    //       title: "Portfolio Tracker",
-    //       description: "Track your crypto portfolio performance",
-    //       href: "/portfolio",
-    //       icon: "TrendingUp",
-    //     },
-    //     {
-    //       title: "Price Alerts",
-    //       description: "Set alerts for token price movements",
-    //       href: "/alerts",
-    //       icon: "Bell",
-    //     },
-    //     {
-    //       title: "Analytics",
-    //       description: "Advanced trading analytics and insights",
-    //       href: "/analytics",
-    //       icon: "BarChart",
-    //     },
-    //   ],
-    // },
+  
     {
       title: "Swap",
       href: "/swap",

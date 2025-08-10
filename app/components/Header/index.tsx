@@ -121,10 +121,8 @@ export default function TrueFlowHeader() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-          scrolled
-            ? "bg-neutral-200/90 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
+        className={`fixed w-[90%] mx-auto bg-white rounded-lg my-3 top-2 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? " shadow-sm" : "bg-transparent"
         }`}
       >
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -143,7 +141,8 @@ export default function TrueFlowHeader() {
                       <NavigationMenuTrigger className="flex items-center gap-1">
                         {item.title}
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent>
+                      <NavigationMenuContent className="!w-[300px] !min-h-[200px] ">
+                        {/* <NavigationMenuContent> */}
                         <ul className="grid w-[300px] gap-3 p-4">
                           {item.dropdownItems?.map(
                             (dropdownItem, dropdownIndex) => {
@@ -199,7 +198,7 @@ export default function TrueFlowHeader() {
             onClick={handleLaunchApp}
             className="max-w-2xl bg-neutral-100 rounded-full px-3 py-1 flex items-center gap-1 hover:bg-neutral-200 transition-colors duration-200"
           >
-            <Text as="p" variant="muted" size="md">
+            <Text as="p" variant="heading" size="md">
               Launch App
             </Text>
             <span>
@@ -211,9 +210,9 @@ export default function TrueFlowHeader() {
 
       {/* Loading Overlay */}
       {isLoading && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center mt-20">
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-          <div className="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/20">
+          <div className="relative z-10 bg-white rounded-2xl p-8 shadow-2xl border border-white/20">
             <Loader />
           </div>
         </div>
@@ -256,84 +255,76 @@ export function TrueFlowHeaderRedirect() {
     navigationData?.navigationItems?.filter((item) => !item.hasDropdown) || [];
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-neutral-200/90 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <TrueFlowLogo />
-        </Link>
+    <>
+      <header
+        className={`fixed w-[90%] mx-auto bg-white rounded-lg my-3 top-2 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? " shadow-sm" : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <TrueFlowLogo />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <NavigationMenu className="hidden md:flex relative">
-          <NavigationMenuList className="relative">
-            {navigationData?.navigationItems?.map((item, index) => (
-              <NavigationMenuItem key={index}>
-                {item.hasDropdown ? (
-                  <>
-                    <NavigationMenuTrigger className="flex items-center gap-1">
-                      {item.title}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid w-[300px] gap-3 p-4">
-                        {item.dropdownItems?.map(
-                          (dropdownItem, dropdownIndex) => {
-                            const Icon = iconMap?.[dropdownItem.icon];
-                            return (
-                              <ListItem
-                                key={dropdownIndex}
-                                title={dropdownItem.title}
-                                href={dropdownItem.href}
-                                icon={Icon}
-                              >
-                                {dropdownItem.description}
-                              </ListItem>
-                            );
-                          }
+          {/* Desktop Navigation */}
+          <NavigationMenu className="hidden md:flex relative">
+            <NavigationMenuList className="relative">
+              {navigationData?.navigationItems?.map((item, index) => (
+                <NavigationMenuItem key={index}>
+                  {item.hasDropdown ? (
+                    <>
+                      <NavigationMenuTrigger className="flex items-center gap-1">
+                        {item.title}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent className="!w-[300px] !min-h-[200px]">
+                        <ul className="grid w-[300px] gap-3 p-4">
+                          {item.dropdownItems?.map(
+                            (dropdownItem, dropdownIndex) => {
+                              const Icon = iconMap?.[dropdownItem.icon];
+                              return (
+                                <ListItem
+                                  key={dropdownIndex}
+                                  title={dropdownItem.title}
+                                  href={dropdownItem.href}
+                                  icon={Icon}
+                                >
+                                  {dropdownItem.description}
+                                </ListItem>
+                              );
+                            }
+                          )}
+                        </ul>
+                      </NavigationMenuContent>
+                    </>
+                  ) : (
+                    <Link href={item.href || "#"} legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={cn(
+                          navigationMenuTriggerStyle(),
+                          "relative transition-colors duration-200",
+                          activeIndex === index &&
+                            !item.hasDropdown &&
+                            "text-green-600 font-semibold"
                         )}
-                      </ul>
-                    </NavigationMenuContent>
-                  </>
-                ) : (
-                  <Link href={item.href || "#"} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        "relative transition-colors duration-200",
-                        activeIndex === index &&
-                          !item.hasDropdown &&
-                          "text-green-600 font-semibold"
-                      )}
-                    >
-                      {item.title}
-                    </NavigationMenuLink>
-                  </Link>
-                )}
-              </NavigationMenuItem>
-            ))}
+                      >
+                        {item.title}
+                      </NavigationMenuLink>
+                    </Link>
+                  )}
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
 
-            {/* Sliding indicator */}
-            {/* {simpleNavItems.length > 0 && (
-              <div 
-                className="absolute bottom-0 h-0.5 bg-green-600 rounded-full transition-all duration-300 ease-out"
-                style={{
-                  width: `${100 / navigationData.navigationItems.length}%`,
-                  transform: `translateX(${activeIndex * 100}%)`,
-                }}
-              />
-            )} */}
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <div>
-          <WrappedCustomConnectButton className="w-full bg-black hover:bg-neutral-800" />
+          <div>
+            <WrappedCustomConnectButton className="w-full bg-black hover:bg-neutral-800" />
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      
+      {/* Spacer div to push content below the fixed header */}
+      <div className="h-20"></div>
+    </>
   );
 }

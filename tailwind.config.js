@@ -23,6 +23,11 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // Add your custom green colors
+        'trueflow-green': {
+          start: '#1B5E20',
+          end: '#7CB342'
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -52,6 +57,10 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      // Add a custom gradient extension
+      backgroundImage: {
+        'trueflow-gradient': 'linear-gradient(135deg, #1B5E20 0%, #7CB342 100%)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 0.25rem)",
@@ -73,9 +82,15 @@ module.exports = {
       },
     },
   },
+  // Safelist the gradient classes to ensure they're not purged
+  // safelist: [
+  //   {
+  //     pattern: /(bg|from|to|via)-(trueflow-green-(start|end))/,
+  //   },
+  //   'bg-trueflow-gradient'
+  // ],
   plugins: [
     require("tailwindcss-animate"),
-    require("@butterfail/tailwindcss-inverted-radius"),
-    // ... any other plugins
+    // require("@butterfail/tailwindcss-inverted-radius"),
   ],
 };

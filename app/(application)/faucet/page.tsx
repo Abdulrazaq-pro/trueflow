@@ -66,7 +66,7 @@ export default function FaucetComponent() {
   };
 
   return (
-    <main className="min-h-screen  ">
+    <main className="min-h-screen   py-20 md:py-32 lg:py-40">
       <TrueFlowHeaderRedirect />
       <div className="flex items-center justify-center p-4">
         <div className="w-full max-w-md ">

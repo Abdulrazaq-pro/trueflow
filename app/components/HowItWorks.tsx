@@ -51,19 +51,11 @@ const HowItWorks = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto p-4 overflow-hidden relative">
-      <div className="w-[80%] mx-auto h-10  rounded-t-[12px] bg-gradient-to-br from-[#1B5E20] to-[#7CB342] "></div>
+      <div className="w-[80%] mx-auto h-10 rounded-t-[12px] bg-trueflow-gradient"></div>
 
       {/* Shape Container */}
       <div className="relative">
-        <div
-          className="absolute inset-0 -z-10 bg-gradient-to-br from-[#1B5E20] to-[#7CB342] rounded-md shadow-lg"
-          style={
-            {
-              // borderTopLeftRadius: "60px 40px",
-              // borderTopRightRadius: "60px 40px",
-            }
-          }
-        ></div>
+        <div className="absolute inset-0 -z-10 bg-trueflow-gradient rounded-md shadow-lg"></div>
 
         <AbsolutePosition top={-50} left={-50}>
           {/* <div className="bg-pink-500 text-white p-3 rounded shadow-lg">

@@ -39,7 +39,7 @@ const CommunitySection = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="flex items-center justify-center gap-3 px-6 py-3 w-full bg-white/20 text-white rounded-lg font-medium text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-neutral-700"
+                className="flex items-center justify-center gap-3 px-6 py-3 w-full bg-gray-800 text-white rounded-lg font-medium text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-neutral-700"
               >
                 <IconComponent className="w-4 h-4" />
                 <span>{link.name}</span>

@@ -163,7 +163,7 @@ const Dashboard = () => {
   const navigationItems = ["Overview", "Strategy", "Execute", "Account"];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen  py-20 md:py-32 lg:py-40">
       {/* Header */}
       <TrueFlowHeaderRedirect />
 
